@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <contextName>DOMAN</contextName>
+	<timestamp key="bySecond" datePattern="yyyy.MM.dd'T'HH.mm.ss" timeReference="contextBirth"/>
+	<!--  <property name="logfilepath" value="${configlogpath}/${configlogfile}${bySecond}.log" />-->
+	
+	<property name="logfilepath" value="${configlogpath}/${configlogfile}.log" />
+	<!-- FILE -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logfilepath}</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${logfilepath}-%i.zip</fileNamePattern>
+			<minIndex>1</minIndex>
+			<!-- <maxIndex>3</maxIndex> -->
+		</rollingPolicy>
+
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>5MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%highlight(%-5level){user} %cyan([%c:%L]) %replace(%m){'\n',''}%n</pattern>
+			<!--  <pattern>%d %-5p %X{service} %X{user} [%c:%L] %m%n</pattern>-->
+			<outputPatternAsHeader>true</outputPatternAsHeader>
+		</encoder>
+	</appender>
+	
+	<!-- CONSOLE -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<!-- <pattern>%highlight(%-5level){user} %cyan([%c:%L]) %m%n</pattern>-->
+			<pattern>%highlight(%-5level){user} %cyan([%c:%L]) %replace(%m){'\n',''}%n</pattern>
+		</layout>
+		<withJansi>true</withJansi>
+		<target>System.out</target>
+	</appender>
+	
+	<!-- Thymeleaf: log -->
+	<logger name="log4j.logger.org.thymeleaf" level="debug" />
+	<logger name="log4j.logger.org.thymeleaf.TemplateEngine.CONFIG" level="trace" />
+	<logger name="log4j.logger.org.thymeleaf.TemplateEngine.TIMER" level="trace" />
+	<logger name="log4j.logger.org.thymeleaf.TemplateEngine.cache.TEMPLATE_CACHE" level="trace" />
+
+	
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="${configlogtype}" />
+	</root>
+
+	
+</configuration>

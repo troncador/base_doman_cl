@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		 <groupId>cl.doman</groupId>
+		 <artifactId>doman-maven-webapp</artifactId>
+		 <version>1.0</version>
+		 <relativePath>../../maven/webapp-1.8.xml</relativePath>
+	</parent>
+
+	<groupId>cl.doman.platform</groupId>
+	<artifactId>doman-platform-spring-web</artifactId>
+	<version>0.3</version>
+	<packaging>jar</packaging>
+
+	<name>doman-platform-spring-web</name>
+
+	<properties>
+		<spring.version>4.2.1.RELEASE</spring.version>
+	</properties>
+
+	<dependencies>
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		
+		<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- org.thymeleaf -->
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring4</artifactId>
+			<version>2.1.3.RELEASE</version>
+			<exclusions>
+	          	<exclusion>
+	          		<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+	           	</exclusion>
+	        </exclusions>
+		</dependency>
+
+		
+		<!-- DOMAN -->
+		<dependency>
+			<groupId>cl.doman.core</groupId>
+			<artifactId>doman-core-resource</artifactId>
+			<version>0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>cl.doman.core</groupId>
+			<artifactId>doman-core-db</artifactId>
+			<version>0.3</version>
+		</dependency>
+
+		
+	</dependencies>
+</project>

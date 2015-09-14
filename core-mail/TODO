@@ -1,0 +1,27 @@
+-Separar estilo mail - de mandarlo
+
+Clases:
+	EmailAcount:
+		Bean
+
+	EmailConfig
+		Interfaz
+			Authenticator getAuthenticator();
+			EmailAccount getSenderEmailAccount();
+			Properties getProperties();
+			
+	EmailTemplate
+			String getSubject();
+			String getContent();
+		Maqueta de como se va a ver el mail
+		Interfaz
+		
+	EmailSender:
+		Interfaz
+		Mandar 1, varios, etc
+		
+		Recibe EmailTemplate, EmailConfig
+		
+	EmailAlgo:
+		Usa EmailSender para mandar los mail de alguna forma en particular	
+		daemon,

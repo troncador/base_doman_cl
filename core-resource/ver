@@ -1,0 +1,43 @@
+1)	http://commons.apache.org/
+
+a)Puede poblar bean 
+	
+	String firstName = (String)
+		PropertyUtils.getSimpleProperty(employee, "firstName");
+	
+	útil para poblar la base de datos, mediante archivos csv
+	
+	http://commons.apache.org/beanutils/apidocs/org/apache/commons/beanutils/package-summary.html#package_description
+b)Archivos de configuración
+	http://commons.apache.org/configuration/
+	
+c)Leer archivo csv
+	http://commons.apache.org/csv/
+	
+	
+d)Pool de conecciones a la base de datos (rapidez al conectarse)
+	http://commons.apache.org/dbcp/
+	
+e) Xml
+	http://commons.apache.org/digester/
+	
+f)Crear una función que sea un objeto
+	http://commons.apache.org/functor/examples.html
+	
+g)Common-lang
+	http://commons.apache.org/lang/userguide.html
+
+g)Common-io
+	(FileUtils)
+	copy files 
+	delete file 
+	copy directories
+		
+h)Commons VFS
+	Obtiene archivos de diferentes fuentes, ftp, ssh, jar, zip
+	http://commons.apache.org/vfs/api.html
+	puede explorar los comprimidos iterativamente y luego ir a ftp
+	
+	res://[ path] 
+	
+)Soap jsf	

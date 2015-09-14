@@ -1,0 +1,97 @@
+1)Configuración
+
+
+
+http://commons.apache.org/proper/commons-configuration/
+
+
+2)Logger
+http://logback.qos.ch/manual/architecture.html
+
+Está optimizado para usar los corchetes, ya que evalua antes si realizar el log
+logger.debug("The new entry is "+entry+".");
+logger.debug("The new entry is {}.", entry);
+
+se puede poner en la configuración debug para mostrar la configuración, tambièn se puede
+<configuration debug="true"> 
+
+tambièn se puede hacer 
+ LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+    // print logback's internal status
+    StatusPrinter.print(lc);
+y tiene el mismo resultado
+
+elegir el archivo de configuraciòn
+java -Dlogback.configurationFile=/path/to/config.xml chapters.configuration.MyApp1
+tambièn puede ser un url
+
+<configuration scan="true" scanPeriod="30 seconds" > 
+pueden ser minutos, horas o segundos
+
+LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
+
+    try {
+      JoranConfigurator configurator = new JoranConfigurator();
+      configurator.setContext(context);
+      // Call context.reset() to clear any previous configuration, e.g. default 
+      // configuration. For multi-step configuration, omit calling context.reset().
+      context.reset(); 
+      configurator.doConfigure(args[0]);
+    } catch (JoranException je) {
+      // StatusPrinter will handle this
+    }
+    StatusPrinter.printInCaseOfErrorsOrWarnings(context);
+
+ Configuration:
+ 	appender
+ 	logger
+ 	root
+
+ Se puede hacer un servlet con los log
+ 
+ Variables:
+ "${${userid}.password}"
+ resultado por omosión
+ 
+ crear variables
+   <define name="rootLevel" class="a.class.implementing.PropertyDefiner">
+    <shape>round</shape>
+    <color>brown</color>
+    <size>24</size>
+  </define>
+  
+    <if condition="some conditional expression">
+    <then>
+      ...
+    </then>
+    <else>
+      ...
+    </else>    
+  </if>
+ 
+ "${id:-${userid}}" 
+ 
+  <include file="src/main/java/chapters/configuration/includedConfig.xml"/>
+ 
+ 
+ 
+ Ansi:
+ http://www.mihai-nita.net/eclipse/
+ 
+ en windows se agrega :
+ <dependency>
+    <groupId>org.fusesource.jansi</groupId>
+    <artifactId>jansi</artifactId>
+    <version>1.9</version>
+</dependency>
+
+
+
+http://blog.headfocus.com/2010/12/efficient-logging-with-logback-lilith-maven-combo/
+http://sourceforge.net/projects/lilith/files/lilith/0.9.42/
+http://sourceforge.net/projects/lilith/
+http://ekkescorner.wordpress.com/2009/09/05/osgi-logging-part-8-viewing-log-events-lilith/
+
+
+jdevelop
+http://www.andrei.gmxhome.de/jdepend4eclipse/

@@ -1,0 +1,43 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cl.doman</groupId>
+   		<artifactId>doman-maven-base</artifactId>
+   		<version>1.0</version>
+   		<relativePath>../../maven/base-1.8.xml</relativePath>
+	</parent>
+	
+	
+	<groupId>cl.doman.core</groupId>
+	<artifactId>doman-core-db</artifactId>
+	<packaging>jar</packaging>
+	<version>0.3</version>
+	<name>doman-core-db</name>
+
+	<repositories>
+		<repository>
+			<id>EclipseLink</id>
+			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>cl.doman.base</groupId>
+			<artifactId>doman-base</artifactId>
+			<version>0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.36</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.jpa</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+	</dependencies>
+</project>

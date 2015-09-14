@@ -1,0 +1,20 @@
+1)
+	Lo que agregué
+	@OneToOne
+	@JoinColumn(name="id_user",nullable=false, insertable=false, updatable=false)
+	
+2)
+	Internacionalizar base de datos:
+	http://stackoverflow.com/questions/1363893/whats-the-best-way-to-handle-i18n-in-lookup-tables
+	The big question here is - can translations can be altered by end users?
+
+If the answer is "NO", resource bundles are easier and faster to use than tables. Instead of actual text your tables will contain resource key (or you could use primary key for that purpose if it's textual rather than numeric) and appropriate resource bundle will contain the translation.
+
+If the answer is "YES", you have to store translations in the database. I have found, however, that the easiest approach in this scenario is to mimic the above resource bundle functionality in the database - e.g. have a single table with "locale", "resource key", "resource value" columns that all other tables will use to look up actual localized text.
+	
+	
+3) AbstractConverter
+https://github.com/ancoron/pg-inet-maven/wiki/Support-custom-data-types-in-EclipseLink
+
+So with this i think we have a pretty generic solution to avoid using ordinal with enums and JPA
+http://blog.xebia.com/2009/08/28/using-enums-with-jpa-without-the-evil-ordinal/

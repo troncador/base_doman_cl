@@ -1,19 +1,16 @@
 package cl.doman.db.model.table;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
+import java.io.Serializable;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-
 @MappedSuperclass
-public class StandardTable implements BaseTable<Integer>{
+public class StandardTable implements Serializable, BaseTable<Integer>{
+  private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	protected Integer id;
-	
-	
 	public Integer getId() {
 		return this.id;
 	}
@@ -21,4 +18,6 @@ public class StandardTable implements BaseTable<Integer>{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	protected Integer id;
 }

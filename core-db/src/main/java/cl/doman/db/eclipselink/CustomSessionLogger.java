@@ -1,4 +1,4 @@
-package cl.molavec.db.eclipselink;
+package cl.doman.db.eclipselink;
 
 import org.eclipse.persistence.logging.AbstractSessionLog;
 import org.eclipse.persistence.logging.SessionLog;

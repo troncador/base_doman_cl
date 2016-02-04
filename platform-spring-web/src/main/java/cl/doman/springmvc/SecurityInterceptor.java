@@ -1,7 +1,5 @@
 package cl.doman.springmvc;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,15 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import cl.doman.springmvc.security.AccessControl;
-import cl.doman.springmvc.security.AccessControlException;
-import cl.doman.springmvc.security.Permission;
-import cl.doman.springmvc.security.SecurityFilter;
 
 
 public class SecurityInterceptor extends HandlerInterceptorAdapter  {
@@ -40,8 +32,7 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter  {
 			return;
 		}
 		//modelAndView.addObject("accessControl", accessControlWrapper);
-		
-;
+
 	
 	}
 }

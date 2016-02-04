@@ -2,15 +2,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		 <groupId>cl.doman</groupId>
-		 <artifactId>doman-maven-webapp</artifactId>
-		 <version>1.0</version>
-		 <relativePath>../../maven/webapp-1.8.xml</relativePath>
+                <groupId>cl.doman</groupId>
+                <artifactId>doman-maven-webapp</artifactId>
+                <version>0.3.0</version>
 	</parent>
 
 	<groupId>cl.doman.platform</groupId>
 	<artifactId>doman-platform-spring-web</artifactId>
-	<version>0.3</version>
+	<version>0.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>doman-platform-spring-web</name>
@@ -52,12 +51,12 @@
 		<dependency>
 			<groupId>cl.doman.core</groupId>
 			<artifactId>doman-core-resource</artifactId>
-			<version>0.3</version>
+			<version>0.3.0</version>
 		</dependency>
 		<dependency>
 			<groupId>cl.doman.core</groupId>
 			<artifactId>doman-core-db</artifactId>
-			<version>0.3</version>
+			<version>0.3.0</version>
 		</dependency>
 
 		

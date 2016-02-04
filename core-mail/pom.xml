@@ -6,12 +6,11 @@
 		<groupId>cl.doman</groupId>
     		<artifactId>doman-maven-base</artifactId>
     		<version>0.3.0</version>
-    		<relativePath>../../maven/base-1.8.xml</relativePath>
 	</parent>
 
 	<groupId>cl.doman.core</groupId>
 	<artifactId>doman-core-mail</artifactId>
-	<version>0.3</version>
+	<version>0.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>doman-core-mail</name>

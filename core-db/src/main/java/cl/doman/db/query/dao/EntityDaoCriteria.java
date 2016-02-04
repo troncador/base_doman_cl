@@ -43,9 +43,11 @@ public abstract class EntityDaoCriteria<T extends BaseTable<PK>,PK extends Seria
 	
 	//[start] OTHER
 	abstract public SingularAttribute<? super T, PK> getPK();
-
+	
+	private PersistenceUnitFactory server;
+	
 	public EntityManager getEntityManager(){
-		PersistenceUnitFactory server = PersistenceUnitFactory.getInstance();
+		server = PersistenceUnitFactory.getInstance();
 		return server.getEntityManager();
 	}
 	
@@ -105,7 +107,7 @@ public abstract class EntityDaoCriteria<T extends BaseTable<PK>,PK extends Seria
 		PreparePredicate<T> preparePredicate = getPreparePredicateByField(value,field);
 		return this.exist(preparePredicate);
 	}
-	
+
 	
 	public boolean exist(PreparePredicate<T> prepareQuery) throws QueryException{
 		EntityManager entityManager = getEntityManager();
@@ -358,14 +360,23 @@ public abstract class EntityDaoCriteria<T extends BaseTable<PK>,PK extends Seria
 		};
 	}
 	private <O> PreparePredicate<T> getPreparePredicateByField(final O value,final SingularAttribute<T,O> field){
-		return   new PreparePredicate<T>(){
+		return  new PreparePredicate<T>(){
 			public Predicate getPredicate(Root<T> root, CriteriaBuilder criteriaBuilder){
-				return criteriaBuilder.equal(root.get(field),value);
+			  Path<O> path = root.get(field);
+			  return criteriaBuilder.equal(path,value);
 			}
 		};
 	}
 
-
+    private <O> PreparePredicate<T> getPreparePredicateByField(final PreparePredicate<T> prepareQuery, final O value,final SingularAttribute<T,O> field){
+      return  new PreparePredicate<T>(){
+        public Predicate getPredicate(Root<T> root, CriteriaBuilder criteriaBuilder){
+          Predicate predicate = prepareQuery.getPredicate(root, criteriaBuilder);
+          Path<O> path = root.get(field);
+          return criteriaBuilder.and(predicate, criteriaBuilder.equal(path,value));
+        }
+      };
+    }
 	//[end] 
 
 	//[start] SAVE
@@ -379,7 +390,6 @@ public abstract class EntityDaoCriteria<T extends BaseTable<PK>,PK extends Seria
 			entityTransaction.commit();	
 			return entity;
 		} catch (PersistenceException e) {
-			log.info(e.getMessage(),e);
 			throw new QueryException(e.getMessage(), e);
 		} catch (Exception e) {
 			throw new QueryException(e.getMessage(), e);

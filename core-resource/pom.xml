@@ -5,12 +5,11 @@
 		<groupId>cl.doman</groupId>
     		<artifactId>doman-maven-base</artifactId>
     		<version>0.3.0</version>
-    		<relativePath>../../maven/base-1.8.xml</relativePath>
 	</parent>
 	
 	<groupId>cl.doman.core</groupId>
 	<artifactId>doman-core-resource</artifactId>
-	<version>0.3</version>
+	<version>0.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>doman-core-resource</name>
@@ -91,8 +90,17 @@
        	<dependency>
 			<groupId>cl.doman.base</groupId>
 			<artifactId>doman-base</artifactId>
-			<version>0.2</version>
+			<version>0.3.0</version>
 		</dependency>
-		    
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+		<dependency>
+			  <groupId>org.thymeleaf</groupId>
+			  <artifactId>thymeleaf</artifactId>
+			  <version>2.1.4.RELEASE</version>
+		</dependency>
 	</dependencies>
 </project>

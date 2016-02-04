@@ -1,4 +1,4 @@
-package cl.doman.base.template;
+package cl.doman.resource.template;
 
 
 import java.util.Locale;
@@ -15,6 +15,7 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 
 import cl.doman.base.initializator.SystemInitializator;
 import cl.doman.base.initializator.SystemInitializatorException;
+import cl.doman.base.template.TemplateComposer;
 
 
 
